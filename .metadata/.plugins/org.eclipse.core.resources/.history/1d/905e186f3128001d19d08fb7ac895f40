@@ -1,0 +1,7 @@
+
+spring.datasource.url=jdbc:mysql://localhost:3306/admindb
+spring.datasource.username=root
+spring.datasource.password=Asuna@123
+
+spring.jpa.hibernate.ddl-auto=create
+spring.application.name=admin-service

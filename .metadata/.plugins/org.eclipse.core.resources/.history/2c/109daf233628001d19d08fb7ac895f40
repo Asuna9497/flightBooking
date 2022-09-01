@@ -1,0 +1,20 @@
+package com.hnt.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hnt.AdminRepository;
+import com.hnt.entity.Admin;
+
+@Service
+public class AdminService {
+	@Autowired
+	AdminRepository adminRepository;
+	
+	public Object getAdminById(Integer id){
+		return adminRepository.findById(id);
+	}
+
+}

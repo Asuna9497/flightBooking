@@ -1,0 +1,51 @@
+package com.hnt.controller;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.mockito.Mockito.when;
+
+import java.util.ArrayList;
+
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
+import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
+
+import com.hnt.entity.Admin;
+import com.hnt.service.AdminService;
+import com.hnt.service.FlightService;
+
+@ExtendWith(MockitoExtension.class)
+public class AdminControllerTest {
+	
+	@Mock
+	AdminService adminService;
+	
+	@Mock
+	FlightService flightService;
+	
+	@InjectMocks
+	AdminController adminController;
+	
+	@Test
+	void testSaveAdmin() {
+		Admin admin = new Admin();
+		admin.setAdminId(1);
+		admin.setName("Priyanka");
+		admin.setPassword("Priyanka@123");
+		
+		when(adminService.save(admin)).thenReturn(admin);
+		Integer id = adminController.saveAdmin(admin);
+		assertEquals(1, id);
+	}
+	
+	@Test
+	void testGetAdmin() {
+		Iterable<Admin> adminList = new ArrayList<>();
+		
+		when(adminService.getAdmin()).thenReturn(adminList);
+		 Iterable<Admin> actualList = adminController.getAdmin();
+		 assertEquals(adminList, actualList);
+	}
+
+}

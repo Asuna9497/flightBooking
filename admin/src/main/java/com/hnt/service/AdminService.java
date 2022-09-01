@@ -1,0 +1,22 @@
+package com.hnt.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.hnt.AdminRepository;
+import com.hnt.entity.Admin;
+
+@Service
+public class AdminService {
+	@Autowired
+	AdminRepository adminRepository;
+	
+	public Iterable<Admin> getAdmin(){
+		return adminRepository.findAll();
+	}
+	
+	public Admin save(Admin admin) {
+		adminRepository.save(admin);
+		return admin;
+	}
+}

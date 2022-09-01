@@ -1,0 +1,6 @@
+package com.hnt;
+
+public class RestClient {
+
+	private static final String URL = "http://localhost:8081/admin";
+}
